@@ -1,0 +1,10 @@
+[package]
+name = "horizon-mod-waystones"
+version = "26.3.0.1"
+edition = "2024"
+license = "All Rights Reserved"
+publish = false
+description = "Teleport back to activated waystones. For Survival, Adventure or Servers."
+
+[lib]
+path = "mixins/waystones/runtime.rs"
