@@ -1,0 +1,375 @@
+[mod]
+id = "xaerominimap"
+version = "26.6.2"
+priority = 100
+
+[compatibility]
+horizon_revision = "c9d474dd9116e84c243f8992d75c11314df56f06"
+
+[[module]]
+id = "runtime"
+file = "crates/horizon-client/src/game.rs"
+name = "port_xaerominimap"
+source = "runtime.rs"
+
+[[module]]
+id = "game_side"
+file = "crates/horizon-client/src/game.rs"
+name = "port_xaerominimap_game"
+source = "game_side.rs"
+
+[[injection]]
+id = "list"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_mods"
+helper = "list.rs"
+bindings = [
+  { name = "mods", ty = "&mut Vec<crate::game::native_hooks::NativeMod>", value = "&mut *mods" },
+]
+
+[[injection]]
+id = "key"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_key"
+helper = "key.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "key", ty = "&str", value = "key" },
+  { name = "pressed", ty = "bool", value = "pressed" },
+]
+
+[[injection]]
+id = "hud"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_hud"
+helper = "hud.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "batch", ty = "&mut horizon_client::hud::HudBatch", value = "&mut *batch" },
+  { name = "corners", ty = "&mut horizon_client::extras_hud::Corners", value = "&mut *corners" },
+]
+
+[[injection]]
+id = "tick"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_tick"
+helper = "tick.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "settings"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_settings"
+helper = "settings.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "mod_id", ty = "&str", value = "mod_id" },
+  { name = "buttons", ty = "&mut Vec<String>", value = "&mut *buttons" },
+]
+
+[[injection]]
+id = "click"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_settings_click"
+helper = "click.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "mod_id", ty = "&str", value = "mod_id" },
+  { name = "button", ty = "usize", value = "button" },
+]
+
+# Off: @Inject(HEAD) on ChatListener.handleDisguisedChatMessage (MixinChatListener.onHandleDisguisedChatMessag)
+#   No Horizon function mapped for ChatListener.handleDisguisedChatMessage (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-chat-listener-on-handle-disguised-chat-messag"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ChatListener.handleSystemMessage (MixinChatListener.onHandleSystemChat)
+#   No Horizon function mapped for ChatListener.handleSystemMessage (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-chat-listener-on-handle-system-chat"
+# kind = "BEFORE_CALL"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ClientPacketListener.handleChunkBlocksUpdate (MixinClientPlayNetworkHandler.onOnChunkDeltaUpdate)
+#   No Horizon function mapped for ClientPacketListener.handleChunkBlocksUpdate (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-on-chunk-delta-update"
+# kind = "AFTER_CALL"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ClientPacketListener.handleLevelChunkWithLight (MixinClientPlayNetworkHandler.onHandleLevelChunkWithLight)
+#   No Horizon function mapped for ClientPacketListener.handleLevelChunkWithLight (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-handle-level-chunk-with-light"
+# kind = "AFTER_CALL"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ClientPacketListener.handleLightUpdatePacket (MixinClientPlayNetworkHandler.onHandleLightUpdatePacket)
+#   No Horizon function mapped for ClientPacketListener.handleLightUpdatePacket (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-handle-light-update-packet"
+# kind = "AFTER_CALL"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ClientPacketListener.queueLightRemoval (MixinClientPlayNetworkHandler.onQueueLightRemoval)
+#   No Horizon function mapped for ClientPacketListener.queueLightRemoval (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-queue-light-removal"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ClientPacketListener.handleBlockUpdate (MixinClientPlayNetworkHandler.onOnBlockUpdate)
+#   No Horizon function mapped for ClientPacketListener.handleBlockUpdate (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-on-block-update"
+# kind = "AFTER_CALL"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ClientPacketListener.handleSetSpawn (MixinClientPlayNetworkHandler.onOnPlayerSpawnPosition)
+#   No Horizon function mapped for ClientPacketListener.handleSetSpawn (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-on-player-spawn-position"
+# kind = "AFTER_CALL"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ClientPacketListener.handleLogin (MixinClientPlayNetworkHandler.onOnGameJoin)
+#   No Horizon function mapped for ClientPacketListener.handleLogin (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-on-game-join"
+# kind = "AFTER_CALL"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ClientPacketListener.close (MixinClientPlayNetworkHandler.onClose)
+#   No Horizon function mapped for ClientPacketListener.close (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-close"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ClientPacketListener.sendCommand (MixinClientPlayNetworkHandler.onSendCommand)
+#   No Horizon function mapped for ClientPacketListener.sendCommand (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-send-command"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ClientPacketListener.sendUnattendedCommand (MixinClientPlayNetworkHandler.onSendUnattendedCommand)
+#   No Horizon function mapped for ClientPacketListener.sendUnattendedCommand (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-play-network-handler-on-send-unattended-command"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on LocalPlayer.respawn (MixinClientPlayerEntity.onTickStart)
+#   No Horizon function mapped for LocalPlayer.respawn (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-client-player-entity-on-tick-start"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on BossHealthOverlay.extractBar (MixinFabricBossBarHud.onRenderBossBar)
+#   No Horizon function mapped for BossHealthOverlay.extractBar (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-boss-bar-hud-on-render-boss-bar"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on ChatListener.showMessageToPlayer (MixinFabricChatListener.onShowMessageToPlayer)
+#   No Horizon function mapped for ChatListener.showMessageToPlayer (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-chat-listener-on-show-message-to-player"
+# kind = "BEFORE_CALL"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ClientPacketListener.sendChat (MixinFabricClientPacketListener.onSendChat)
+#   No Horizon function mapped for ClientPacketListener.sendChat (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-client-packet-listener-on-send-chat"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on GameRenderer.extract (MixinFabricGameRenderer.onRenderStart)
+#   No Horizon function mapped for GameRenderer.extract (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-game-renderer-on-render-start"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on Gui.extractRenderState (MixinFabricGui.onRenderGuiEnd)
+#   No Horizon function mapped for Gui.extractRenderState (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-gui-on-render-gui-end"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Gui.setScreen (MixinFabricGui.onOpenScreen)
+#   No Horizon function mapped for Gui.setScreen (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-gui-on-open-screen"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @ModifyReturnValue(RETURN) on KeyMapping.isDown (MixinFabricKeyMapping.onIsDown)
+#   Mapped to a helper call, not a function to inject into.
+# [[injection]]
+# id = "mixin-fabric-key-mapping-on-is-down"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Minecraft.disconnect (MixinFabricMinecraftClient.onDisconnect)
+#   No Horizon function mapped for Minecraft.disconnect (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-minecraft-client-on-disconnect"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Minecraft.setLevel (MixinFabricMinecraftClient.onJoinWorld)
+#   No Horizon function mapped for Minecraft.setLevel (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-minecraft-client-on-join-world"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on MinecraftServer.tickServer (MixinFabricMinecraftServer.onTick)
+#   No Horizon function mapped for MinecraftServer.tickServer (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-minecraft-server-on-tick"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Player.tick (MixinFabricPlayerEntity.onTickStart)
+#   No Horizon function mapped for Player.tick (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-player-entity-on-tick-start"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on PlayerList.placeNewPlayer (MixinFabricPlayerList.onPlaceNewPlayer)
+#   No Horizon function mapped for PlayerList.placeNewPlayer (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-player-list-on-place-new-player"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on TextureAtlas.upload (MixinFabricSpriteAtlasTexture.onUpload)
+#   No Horizon function mapped for TextureAtlas.upload (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-fabric-sprite-atlas-texture-on-upload"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @ModifyArg(INVOKE) on GameRenderer.renderLevel (MixinGameRenderer.renderLevel)
+#   No Horizon function mapped for GameRenderer.renderLevel (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-game-renderer-render-level"
+# kind = "MODIFY_ARG"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on GuiRenderer.render (MixinGuiRenderer.onRenderPre)
+#   No Horizon function mapped for GuiRenderer.render (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-gui-renderer-on-render-pre"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on GuiRenderer.render (MixinGuiRenderer.onRenderPost)
+#   No Horizon function mapped for GuiRenderer.render (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-gui-renderer-on-render-post"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on LevelStorageAccess.deleteLevel (MixinLevelStorageAccess.onDeleteLevel)
+#   No Horizon function mapped for LevelStorageAccess.deleteLevel (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-level-storage-access-on-delete-level"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Model.renderToBuffer (MixinModel.onRender)
+#   No Horizon function mapped for Model.renderToBuffer (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-model-on-render"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @ModifyVariable(HEAD) on ModelFeatureRenderer.prepareModel (MixinModelFeatureRenderer.onPrepareModel)
+#   No Horizon function mapped for ModelFeatureRenderer.prepareModel (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-model-feature-renderer-on-prepare-model"
+# kind = "MODIFY_VARIABLE"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ModelPart.compile (MixinModelPart.onRender)
+#   No Horizon function mapped for ModelPart.compile (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-model-part-on-render"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @ModifyVariable(HEAD) on GuiRenderer.preparePictureInPictureState (MixinOptionalGuiRenderer.onPreparePictureInPictureState)
+#   No Horizon function mapped for GuiRenderer.preparePictureInPictureState (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-optional-gui-renderer-on-prepare-picture-in-picture-state"
+# kind = "MODIFY_VARIABLE"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on GuiRenderer.close (MixinOptionalGuiRenderer.onClose)
+#   No Horizon function mapped for GuiRenderer.close (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-optional-gui-renderer-on-close"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractCrosshair (MixinOptionalInGameHud.onRenderCrosshair)
+#   No Horizon function mapped for Hud.extractCrosshair (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-optional-in-game-hud-on-render-crosshair"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on Hud.extractEffects (MixinOptionalInGameHud.postRenderStatusEffectOverlay)
+#   No Horizon function mapped for Hud.extractEffects (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-optional-in-game-hud-post-render-status-effect-overlay"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractEffects (MixinOptionalInGameHud.onRenderStatusEffectOverlay)
+#   No Horizon function mapped for Hud.extractEffects (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-optional-in-game-hud-on-render-status-effect-overlay"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on LevelRenderer.render (MixinOptionalLevelRenderer.onRenderLevel)
+#   No Horizon function mapped for LevelRenderer.render (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-optional-level-renderer-on-render-level"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on PlayerList.sendLevelInfo (MixinPlayerList.onSendWorldInfo)
+#   No Horizon function mapped for PlayerList.sendLevelInfo (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-player-list-on-send-world-info"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Accessor on SheetedDecalTextureGenerator.textureScale (MixinSheetedDecalTextureGeneratorAccessor.getTextureScale)
+#   No Horizon function mapped for SheetedDecalTextureGenerator.textureScale (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-sheeted-decal-texture-generator-accessor-get-texture-scale"
+# kind = "GET"
+# target = "TODO"
+
+# Off: @ModifyVariable(HEAD) on PlayerWaystoneManager.deactivateWaystone (MixinPlayerWaystoneManager.onDeactivation)
+#   No Horizon function mapped for PlayerWaystoneManager.deactivateWaystone (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mixin-player-waystone-manager-on-deactivation"
+# kind = "MODIFY_VARIABLE"
+# target = "TODO"
