@@ -1,0 +1,442 @@
+[mod]
+id = "cinematic"
+version = "0.18.30"
+priority = 100
+
+# Raw targets are exact functions of one Horizon commit. Pin it (generate --horizon-revision SHA):
+# [compatibility]
+# horizon_revision = "<40-character commit>"
+
+[[module]]
+id = "runtime"
+file = "crates/horizon-client/src/game.rs"
+name = "port_cinematic"
+source = "runtime.rs"
+
+[[module]]
+id = "game_side"
+file = "crates/horizon-client/src/game.rs"
+name = "port_cinematic_game"
+source = "game_side.rs"
+
+[[injection]]
+id = "list"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_mods"
+helper = "list.rs"
+bindings = [
+  { name = "mods", ty = "&mut Vec<crate::game::native_hooks::NativeMod>", value = "&mut *mods" },
+]
+
+[[injection]]
+id = "key"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_key"
+helper = "key.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "key", ty = "&str", value = "key" },
+  { name = "pressed", ty = "bool", value = "pressed" },
+]
+
+[[injection]]
+id = "tick"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_tick"
+helper = "tick.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+]
+
+[[injection]]
+id = "hud"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_hud"
+helper = "hud.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "batch", ty = "&mut horizon_client::hud::HudBatch", value = "&mut *batch" },
+  { name = "corners", ty = "&mut horizon_client::extras_hud::Corners", value = "&mut *corners" },
+]
+
+[[injection]]
+id = "wheel"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_wheel"
+helper = "wheel.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "steps", ty = "f32", value = "steps" },
+  { name = "claimed", ty = "&mut bool", value = "&mut *claimed" },
+]
+
+[[injection]]
+id = "settings"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_settings"
+helper = "settings.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "mod_id", ty = "&str", value = "mod_id" },
+  { name = "buttons", ty = "&mut Vec<String>", value = "&mut *buttons" },
+]
+
+[[injection]]
+id = "click"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_settings_click"
+helper = "click.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "mod_id", ty = "&str", value = "mod_id" },
+  { name = "button", ty = "usize", value = "button" },
+]
+
+# Off: @Inject(RETURN) on AbstractFurnaceBlockEntity.serverTick (AbstractFurnaceBlockEntityMixin.cinematic$watch)
+#   No Horizon function mapped for AbstractFurnaceBlockEntity.serverTick (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "abstract-furnace-block-entity-mixin-watch"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on BossHealthOverlay.extractRenderState (BossHealthOverlayMixin.cinematic$hide)
+#   No Horizon function mapped for BossHealthOverlay.extractRenderState (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "boss-health-overlay-mixin-hide"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on BrewingStandBlockEntity.serverTick (BrewingStandBlockEntityMixin.cinematic$watch)
+#   No Horizon function mapped for BrewingStandBlockEntity.serverTick (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "brewing-stand-block-entity-mixin-watch"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on Camera.alignWithEntity (CameraMixin.cinematic$scene)
+#   `horizon_client_render::camera::Camera::align_with_entity` has a closure in its body: horizon-mixins doesn't rewrite such bodies with RETURN. A HEAD hook on it, or a RETURN on a function it calls, may work instead.
+# [[injection]]
+# id = "camera-mixin-scene"
+# kind = "RETURN"
+# target = "horizon_client_render::camera::Camera::align_with_entity"
+
+[[injection]]
+id = "camera-mixin-fov"
+kind = "RETURN"
+target = "horizon_client_render::camera::Camera::calculate_fov"
+helper = "camera-mixin-fov.rs"
+bindings = [
+  { name = "value", ty = "f32", value = "$value" },
+]
+
+# Off: @Inject(RETURN) on HumanoidArmorLayer.getArmorModel (CampfireArmorMixin.cinematic$hideStraightArmor)
+#   No Horizon function mapped for HumanoidArmorLayer.getArmorModel (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "campfire-armor-mixin-hide-straight-armor"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on HumanoidModel.setupAnim (CampfireLegModelMixin.cinematic$campfireLeg)
+#   No Horizon function mapped for HumanoidModel.setupAnim (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "campfire-leg-model-mixin-campfire-leg"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on CampfireRenderer.submit (CampfireRendererMixin.cinematic$layout)
+#   No Horizon function mapped for CampfireRenderer.submit (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "campfire-renderer-mixin-layout"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ClientLevel.disconnect (ClientLevelMixin.cinematic$unload)
+#   No Horizon function mapped for ClientLevel.disconnect (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "client-level-mixin-unload"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Accessor on CraftingMenu.access (CraftingMenuAccess.cinematic$access)
+#   No Horizon function mapped for CraftingMenu.access (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "crafting-menu-access-access"
+# kind = "GET"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on EnchantmentMenu.clickMenuButton (EnchantmentMenuMixin.cinematic$enchanted)
+#   No Horizon function mapped for EnchantmentMenu.clickMenuButton (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "enchantment-menu-mixin-enchanted"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ExperienceOrbRenderer.submit (ExperienceOrbRendererMixin.cinematic$notInTheLens)
+#   No Horizon function mapped for ExperienceOrbRenderer.submit (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "experience-orb-renderer-mixin-not-in-the-lens"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractCrosshair (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractCrosshair (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractHotbarAndDecorations (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractHotbarAndDecorations (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-2"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractEffects (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractEffects (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-3"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractCameraOverlays (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractCameraOverlays (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-4"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractOverlayMessage (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractOverlayMessage (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-5"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractTitle (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractTitle (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-6"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractSelectedItemName (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractSelectedItemName (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-7"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractScoreboardSidebar (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractScoreboardSidebar (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-8"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractDemoOverlay (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractDemoOverlay (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-9"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Hud.extractSleepOverlay (GuiMixin.cinematic$hide)
+#   No Horizon function mapped for Hud.extractSleepOverlay (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-mixin-hide-10"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on Gui.setScreen (GuiScreenMixin.cinematic$screen)
+#   No Horizon function mapped for Gui.setScreen (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "gui-screen-mixin-screen"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on HumanoidModel.setupAnim (HumanoidModelMixin.cinematic$stationPose)
+#   No Horizon function mapped for HumanoidModel.setupAnim (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "humanoid-model-mixin-station-pose"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ItemInHandLayer.submitArmWithItem (ItemInHandLayerMixin.cinematic$hammerInHand)
+#   No Horizon function mapped for ItemInHandLayer.submitArmWithItem (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "item-in-hand-layer-mixin-hammer-in-hand"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on KeyboardInput.tick (KeyboardInputMixin.cinematic$input)
+#   No Horizon function mapped for KeyboardInput.tick (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "keyboard-input-mixin-input"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on LevelRenderer.submitFeatures (LevelRendererMixin.cinematic$outline)
+#   No Horizon function mapped for LevelRenderer.submitFeatures (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "level-renderer-mixin-outline"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on LevelRenderer.submitFeatures (LevelRendererMixin.cinematic$scene)
+#   No Horizon function mapped for LevelRenderer.submitFeatures (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "level-renderer-mixin-scene"
+# kind = "RETURN"
+# target = "TODO"
+
+[[injection]]
+id = "living-entity-swing-mixin-no-swing"
+kind = "HEAD"
+target = "horizon_client::mobs::ai::Mob::swing"
+cancellable = true
+helper = "living-entity-swing-mixin-no-swing.rs"
+bindings = [
+  { name = "this", ty = "&mut Mob", value = "&mut *self" },
+]
+
+# Off: @Inject(TAIL) on LocalPlayer.tick (LocalPlayerMixin.cinematic$steer)
+#   No Horizon function mapped for LocalPlayer.tick (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "local-player-mixin-steer"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on Minecraft.renderFrame (MinecraftMixin.cinematic$frame)
+#   No Horizon function mapped for Minecraft.renderFrame (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "minecraft-mixin-frame"
+# kind = "BEFORE_CALL"
+# target = "TODO"
+
+[[injection]]
+id = "minecraft-mixin-use"
+kind = "HEAD"
+target = "horizon_client::first_person::Clicks::start_use_item"
+cancellable = true
+helper = "minecraft-mixin-use.rs"
+bindings = [
+  { name = "this", ty = "&mut Clicks", value = "&mut *self" },
+  { name = "w", ty = "&mut impl HandWorld", value = "&mut *w" },
+]
+
+[[injection]]
+id = "minecraft-mixin-used"
+kind = "RETURN"
+target = "horizon_client::first_person::Clicks::start_use_item"
+helper = "minecraft-mixin-used.rs"
+bindings = [
+  { name = "value", ty = "()", value = "$value" },
+]
+
+[[injection]]
+id = "minecraft-mixin-attack"
+kind = "HEAD"
+target = "horizon_client::first_person::Clicks::start_attack"
+cancellable = true
+helper = "minecraft-mixin-attack.rs"
+bindings = [
+  { name = "this", ty = "&mut Clicks", value = "&mut *self" },
+  { name = "w", ty = "&mut impl HandWorld", value = "&mut *w" },
+]
+
+[[injection]]
+id = "minecraft-mixin-break"
+kind = "HEAD"
+target = "horizon_client::first_person::Clicks::continue_attack"
+cancellable = true
+helper = "minecraft-mixin-break.rs"
+bindings = [
+  { name = "this", ty = "&mut Clicks", value = "&mut *self" },
+  { name = "w", ty = "&mut impl HandWorld", value = "&mut *w" },
+  { name = "down", ty = "bool", value = "down" },
+]
+
+# Off: @Inject(HEAD) on MouseHandler.onMove (MouseHandlerMixin.cinematic$showcaseCursor)
+#   No Horizon function mapped for MouseHandler.onMove (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mouse-handler-mixin-showcase-cursor"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on MouseHandler.turnPlayer (MouseHandlerMixin.cinematic$turn)
+#   No Horizon function mapped for MouseHandler.turnPlayer (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "mouse-handler-mixin-turn"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on PlayerChunkSender.sendChunk (PlayerChunkSenderMixin.cinematic$sent)
+#   No Horizon function mapped for PlayerChunkSender.sendChunk (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "player-chunk-sender-mixin-sent"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on AvatarRenderer.<init> (PlayerRendererMixin.cinematic$layer)
+#   No Horizon function mapped for AvatarRenderer.<init> (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "player-renderer-mixin-layer"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(RETURN) on AvatarRenderer.getRenderOffset (PlayerRendererMixin.cinematic$sit)
+#   No Horizon function mapped for AvatarRenderer.getRenderOffset (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "player-renderer-mixin-sit"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on GameRenderer.extract (SceneExtractionMixin.cinematic$begin)
+#   No Horizon function mapped for GameRenderer.extract (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "scene-extraction-mixin-begin"
+# kind = "HEAD"
+# target = "TODO"
+
+# Off: @Inject(INVOKE) on GameRenderer.extract (SceneExtractionMixin.cinematic$extract)
+#   No Horizon function mapped for GameRenderer.extract (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "scene-extraction-mixin-extract"
+# kind = "BEFORE_CALL"
+# target = "TODO"
+
+# Off: @Inject(TAIL) on Screen.init (ScreenMixin.cinematic$initialized)
+#   No Horizon function mapped for Screen.init (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "screen-mixin-initialized"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Invoker on Screen.addRenderableWidget (ScreenWidgetAccess.cinematic$addRenderableWidget)
+#   No Horizon function mapped for Screen.addRenderableWidget (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "screen-widget-access-add-renderable-widget"
+# kind = "INVOKE"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on ServerLevel.updateNeighborsAt (ServerLevelMixin.cinematic$neighbours)
+#   `horizon_world::level::Behaviours::update_neighbors_at` is generic: horizon-mixins rejects generic targets.
+# [[injection]]
+# id = "server-level-mixin-neighbours"
+# kind = "HEAD"
+# target = "horizon_world::level::Behaviours::update_neighbors_at"
+
+# Off: @Inject(RETURN) on ServerPlayer.openMenu (ServerPlayerMixin.cinematic$openedMenu)
+#   No Horizon function mapped for ServerPlayer.openMenu (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "server-player-mixin-opened-menu"
+# kind = "RETURN"
+# target = "TODO"
+
+# Off: @Inject(HEAD) on CameraAnimationState.isActive (PunchyCameraStateMixin.cinematic$ownCameraDuringScene)
+#   No Horizon function mapped for CameraAnimationState.isActive (run `match`, or map it in a --mappings file).
+# [[injection]]
+# id = "punchy-camera-state-mixin-own-camera-during-scene"
+# kind = "HEAD"
+# target = "TODO"
