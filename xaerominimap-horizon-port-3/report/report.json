@@ -1,0 +1,4744 @@
+{
+  "id": "xaerominimap",
+  "name": "Xaero's Minimap",
+  "version": "26.6.2",
+  "jar": "xaerominimap-fabric-26.3-26.6.2.jar",
+  "verdict": "Partly convertible",
+  "counts": {
+    "auto": 3,
+    "content": 2,
+    "needs-mapping": 41,
+    "needs-translation": 36,
+    "unsupported": 0
+  },
+  "intermediary": false,
+  "entrypoints": {
+    "client": [
+      "xaero.minimap.XaeroMinimapFabric"
+    ],
+    "server": [
+      "xaero.minimap.XaeroMinimapFabric"
+    ],
+    "modmenu": [
+      "xaero.common.XaeroHudModMenu"
+    ]
+  },
+  "features": [
+    {
+      "category": "event",
+      "in": "xaero/common/PlatformContextLoaderClientOnlyFabric",
+      "detail": "KeyMappingHelper.registerKeyMapping",
+      "horizon": "hook `key`",
+      "status": "auto",
+      "note": "Mojang-named variant of KeyBindingHelper."
+    },
+    {
+      "category": "content",
+      "in": "xaero/common/PlatformContextLoaderCommonFabric",
+      "detail": "registers blocks or items in code",
+      "horizon": "content mod (.hmod)",
+      "status": "content",
+      "note": "Registration and properties: horizon-port-pack carries them as a content mod."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/effect/MinimapStatusEffect",
+      "detail": "extends MobEffect",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "event",
+      "in": "xaero/common/events/ModClientEventsFabric",
+      "detail": "HudElementRegistry.attachElementAfter",
+      "horizon": "hook `hud`",
+      "status": "auto",
+      "note": null
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/graphics/ImprovedFramebuffer",
+      "detail": "extends TextureTarget",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/graphics/MinimapTexture",
+      "detail": "extends SimpleTexture",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiClearSet",
+      "detail": "extends ConfirmScreen",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiDeleteSet",
+      "detail": "extends ConfirmScreen",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiInfoDisplayEdit$SelectionList$Entry",
+      "detail": "extends Entry",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiInfoDisplayEdit$SelectionList",
+      "detail": "extends ObjectSelectionList",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiReset",
+      "detail": "extends ConfirmScreen",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiWaypoints$List$WaypointEntry",
+      "detail": "extends Entry",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiWaypoints$List",
+      "detail": "extends ObjectSelectionList",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiWorldTpCommand$1",
+      "detail": "extends EditBox",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/GuiWorldTpCommand$2",
+      "detail": "extends EditBox",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/MyBigButton",
+      "detail": "extends Plain",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/MySuperTinyButton",
+      "detail": "extends Plain",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/common/gui/TooltipButton",
+      "detail": "extends Plain",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinAbstractClientPlayerEntity",
+      "detail": "mixin into AbstractClientPlayer with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinChatListener.onHandleDisguisedChatMessag",
+      "detail": "@Inject(HEAD) on ChatListener.handleDisguisedChatMessage",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ChatListener.handleDisguisedChatMessage: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinChatListener.onHandleSystemChat",
+      "detail": "@Inject(INVOKE) on ChatListener.handleSystemMessage at Lnet/minecraft/client/gui/components/ChatComponent;addServerSystemMessage(Lnet/minecraft/network/chat/Component;)V",
+      "horizon": "BEFORE_CALL",
+      "status": "needs-mapping",
+      "note": "Only whole statements, plain let initializers and block tails can be selected. No Horizon function known for ChatListener.handleSystemMessage: run `match`. The call it hooks (ChatComponent.addServerSystemMessage) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinChunkDeltaUpdateS2CPacket",
+      "detail": "mixin into ClientboundSectionBlocksUpdatePacket with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onOnChunkDeltaUpdate",
+      "detail": "@Inject(INVOKE) on ClientPacketListener.handleChunkBlocksUpdate at Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/network/PacketProcessor;)V",
+      "horizon": "AFTER_CALL",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.handleChunkBlocksUpdate: run `match`. The call it hooks (PacketUtils.ensureRunningOnSameThread) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onHandleLevelChunkWithLight",
+      "detail": "@Inject(INVOKE) on ClientPacketListener.handleLevelChunkWithLight at Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/network/PacketProcessor;)V",
+      "horizon": "AFTER_CALL",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.handleLevelChunkWithLight: run `match`. The call it hooks (PacketUtils.ensureRunningOnSameThread) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onHandleLightUpdatePacket",
+      "detail": "@Inject(INVOKE) on ClientPacketListener.handleLightUpdatePacket at Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/network/PacketProcessor;)V",
+      "horizon": "AFTER_CALL",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.handleLightUpdatePacket: run `match`. The call it hooks (PacketUtils.ensureRunningOnSameThread) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onQueueLightRemoval",
+      "detail": "@Inject(HEAD) on ClientPacketListener.queueLightRemoval",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.queueLightRemoval: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onOnBlockUpdate",
+      "detail": "@Inject(INVOKE) on ClientPacketListener.handleBlockUpdate at Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/network/PacketProcessor;)V",
+      "horizon": "AFTER_CALL",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.handleBlockUpdate: run `match`. The call it hooks (PacketUtils.ensureRunningOnSameThread) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onOnPlayerSpawnPosition",
+      "detail": "@Inject(INVOKE) on ClientPacketListener.handleSetSpawn at Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/network/PacketProcessor;)V",
+      "horizon": "AFTER_CALL",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.handleSetSpawn: run `match`. The call it hooks (PacketUtils.ensureRunningOnSameThread) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onOnGameJoin",
+      "detail": "@Inject(INVOKE) on ClientPacketListener.handleLogin at Lnet/minecraft/network/protocol/PacketUtils;ensureRunningOnSameThread(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketListener;Lnet/minecraft/network/PacketProcessor;)V",
+      "horizon": "AFTER_CALL",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.handleLogin: run `match`. The call it hooks (PacketUtils.ensureRunningOnSameThread) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onClose",
+      "detail": "@Inject(HEAD) on ClientPacketListener.close",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.close: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onSendCommand",
+      "detail": "@Inject(HEAD) on ClientPacketListener.sendCommand",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.sendCommand: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayNetworkHandler.onSendUnattendedCommand",
+      "detail": "@Inject(HEAD) on ClientPacketListener.sendUnattendedCommand",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.sendUnattendedCommand: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientPlayerEntity.onTickStart",
+      "detail": "@Inject(HEAD) on LocalPlayer.respawn",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for LocalPlayer.respawn: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinClientWorld",
+      "detail": "mixin into ClientLevel with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricBossBarHud.onRenderBossBar",
+      "detail": "@Inject(HEAD) on BossHealthOverlay.extractBar",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for BossHealthOverlay.extractBar: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricChatListener.onShowMessageToPlayer",
+      "detail": "@Inject(INVOKE) on ChatListener.showMessageToPlayer at Lnet/minecraft/client/gui/components/ChatComponent;addPlayerMessage(Lnet/minecraft/network/chat/Component;Lnet/minecraft/network/chat/MessageSignature;Lnet/minecraft/client/multiplayer/chat/GuiMessageTag;)V",
+      "horizon": "BEFORE_CALL",
+      "status": "needs-mapping",
+      "note": "Only whole statements, plain let initializers and block tails can be selected. No Horizon function known for ChatListener.showMessageToPlayer: run `match`. The call it hooks (ChatComponent.addPlayerMessage) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricClientPacketListener.onSendChat",
+      "detail": "@Inject(HEAD) on ClientPacketListener.sendChat",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ClientPacketListener.sendChat: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricGameRenderer.onRenderStart",
+      "detail": "@Inject(HEAD) on GameRenderer.extract",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for GameRenderer.extract: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricGui.onRenderGuiEnd",
+      "detail": "@Inject(RETURN) on Gui.extractRenderState",
+      "horizon": "RETURN",
+      "status": "needs-mapping",
+      "note": "Horizon's RETURN runs at every normal exit and passes the return value on. No Horizon function known for Gui.extractRenderState: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricGui.onOpenScreen",
+      "detail": "@Inject(HEAD) on Gui.setScreen",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for Gui.setScreen: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricKeyMapping.onIsDown",
+      "detail": "@ModifyReturnValue(RETURN) on KeyMapping.isDown",
+      "horizon": "RETURN on `self.native_mapping(name) for vanilla keys; track key hook presses for the mod's own`",
+      "status": "needs-translation",
+      "note": "Horizon has no function to inject into here, only the helper `self.native_mapping(name) for vanilla keys; track key hook presses for the mod's own`. Target mapping is approximate."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricMinecraftClient.onTickStart",
+      "detail": "@Inject(HEAD) on Minecraft.tick",
+      "horizon": "HEAD on hook `tick`",
+      "status": "auto",
+      "note": null
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricMinecraftClient.onDisconnect",
+      "detail": "@Inject(HEAD) on Minecraft.disconnect",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for Minecraft.disconnect: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricMinecraftClient.onJoinWorld",
+      "detail": "@Inject(HEAD) on Minecraft.setLevel",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for Minecraft.setLevel: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricMinecraftServer.onTick",
+      "detail": "@Inject(HEAD) on MinecraftServer.tickServer",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for MinecraftServer.tickServer: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricPlayerEntity.onTickStart",
+      "detail": "@Inject(HEAD) on Player.tick",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for Player.tick: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricPlayerList.onPlaceNewPlayer",
+      "detail": "@Inject(TAIL) on PlayerList.placeNewPlayer",
+      "horizon": "RETURN",
+      "status": "needs-mapping",
+      "note": "Horizon has no TAIL: RETURN runs at every exit, early ones too. No Horizon function known for PlayerList.placeNewPlayer: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinFabricSpriteAtlasTexture.onUpload",
+      "detail": "@Inject(RETURN) on TextureAtlas.upload",
+      "horizon": "RETURN",
+      "status": "needs-mapping",
+      "note": "Horizon's RETURN runs at every normal exit and passes the return value on. No Horizon function known for TextureAtlas.upload: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinGameRenderer.renderLevel",
+      "detail": "@ModifyArg(INVOKE) on GameRenderer.renderLevel at Lnet/minecraft/client/renderer/ProjectionMatrixBuffer;getBuffer(Lorg/joml/Matrix4f;)Lcom/mojang/renderpearl/api/buffers/GpuBufferSlice;",
+      "horizon": "MODIFY_ARG",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for GameRenderer.renderLevel: run `match`. The call it hooks (ProjectionMatrixBuffer.getBuffer) isn't mapped to a Rust function yet."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinGuiGraphics",
+      "detail": "mixin into GuiGraphicsExtractor with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinGuiRenderer.onRenderPre",
+      "detail": "@Inject(HEAD) on GuiRenderer.render",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for GuiRenderer.render: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinGuiRenderer.onRenderPost",
+      "detail": "@Inject(RETURN) on GuiRenderer.render",
+      "horizon": "RETURN",
+      "status": "needs-mapping",
+      "note": "Horizon's RETURN runs at every normal exit and passes the return value on. No Horizon function known for GuiRenderer.render: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinLevelStorageAccess.onDeleteLevel",
+      "detail": "@Inject(RETURN) on LevelStorageAccess.deleteLevel",
+      "horizon": "RETURN",
+      "status": "needs-mapping",
+      "note": "Horizon's RETURN runs at every normal exit and passes the return value on. No Horizon function known for LevelStorageAccess.deleteLevel: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinLocalPlayer",
+      "detail": "mixin into LocalPlayer with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinMinecraftClient",
+      "detail": "mixin into Minecraft with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinMinecraftServer",
+      "detail": "mixin into MinecraftServer with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinModel.onRender",
+      "detail": "@Inject(HEAD) on Model.renderToBuffer",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for Model.renderToBuffer: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinModelFeatureRenderer.onPrepareModel",
+      "detail": "@ModifyVariable(HEAD) on ModelFeatureRenderer.prepareModel",
+      "horizon": "MODIFY_VARIABLE",
+      "status": "needs-mapping",
+      "note": "Selects a Rust local by name: pick it in the target function. No Horizon function known for ModelFeatureRenderer.prepareModel: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinModelPart.onRender",
+      "detail": "@Inject(HEAD) on ModelPart.compile",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for ModelPart.compile: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinOptionalGuiRenderer.onPreparePictureInPictureState",
+      "detail": "@ModifyVariable(HEAD) on GuiRenderer.preparePictureInPictureState",
+      "horizon": "MODIFY_VARIABLE",
+      "status": "needs-mapping",
+      "note": "Selects a Rust local by name: pick it in the target function. No Horizon function known for GuiRenderer.preparePictureInPictureState: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinOptionalGuiRenderer.onClose",
+      "detail": "@Inject(HEAD) on GuiRenderer.close",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for GuiRenderer.close: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinOptionalInGameHud.onRenderCrosshair",
+      "detail": "@Inject(HEAD) on Hud.extractCrosshair",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for Hud.extractCrosshair: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinOptionalInGameHud.postRenderStatusEffectOverlay",
+      "detail": "@Inject(RETURN) on Hud.extractEffects",
+      "horizon": "RETURN",
+      "status": "needs-mapping",
+      "note": "Horizon's RETURN runs at every normal exit and passes the return value on. No Horizon function known for Hud.extractEffects: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinOptionalInGameHud.onRenderStatusEffectOverlay",
+      "detail": "@Inject(HEAD) on Hud.extractEffects",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for Hud.extractEffects: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinOptionalLevelRenderer.onRenderLevel",
+      "detail": "@Inject(HEAD) on LevelRenderer.render",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for LevelRenderer.render: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinPictureInPictureRenderer",
+      "detail": "mixin into PictureInPictureRenderer with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinPlayerList.onSendWorldInfo",
+      "detail": "@Inject(HEAD) on PlayerList.sendLevelInfo",
+      "horizon": "HEAD",
+      "status": "needs-mapping",
+      "note": "No Horizon function known for PlayerList.sendLevelInfo: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinServerPlayer",
+      "detail": "mixin into ServerPlayer with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinSheetedDecalTextureGeneratorAccessor.getTextureScale",
+      "detail": "@Accessor on SheetedDecalTextureGenerator.textureScale",
+      "horizon": "GET",
+      "status": "needs-mapping",
+      "note": "A [[bridge]] GET (SET for a setter) on the Rust struct's field. No Horizon function known for SheetedDecalTextureGenerator.textureScale: run `match`."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/MixinWorldChunk",
+      "detail": "mixin into LevelChunk with no injectors (interfaces or @Shadow only)",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "Usually adds an interface or fields to a game class: needs a manual change."
+    },
+    {
+      "category": "mixin",
+      "in": "xaero/common/mixin/waystones/MixinPlayerWaystoneManager.onDeactivation",
+      "detail": "@ModifyVariable(HEAD) on PlayerWaystoneManager.deactivateWaystone",
+      "horizon": "MODIFY_VARIABLE",
+      "status": "needs-mapping",
+      "note": "Selects a Rust local by name: pick it in the target function. No Horizon function known for PlayerWaystoneManager.deactivateWaystone: run `match`."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/category/ui/GuiCategoryEditor$1",
+      "detail": "extends ConfirmScreen",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/category/ui/GuiCategoryEditor$SettingRowList$Entry",
+      "detail": "extends Entry",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/category/ui/GuiCategoryEditor$SettingRowList",
+      "detail": "extends ObjectSelectionList",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/category/ui/entry/widget/EditorButton",
+      "detail": "extends Plain",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/category/ui/entry/widget/EditorSlider",
+      "detail": "extends AbstractOptionSliderButton",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/category/ui/entry/widget/EditorTextField",
+      "detail": "extends EditBox",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/gui/widget/XaeroSliderWidget",
+      "detail": "extends AbstractSliderButton",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/minimap/info/widget/InfoDisplayCycleButton",
+      "detail": "extends Plain",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/minimap/render/MinimapPipRenderer",
+      "detail": "extends PictureInPictureRenderer",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No mapping for this superclass yet."
+    },
+    {
+      "category": "class",
+      "in": "xaero/hud/minimap/waypoint/WaypointTeleport$1",
+      "detail": "extends Screen",
+      "horizon": null,
+      "status": "needs-translation",
+      "note": "No general screen hook; simple option pages can use the settings hook."
+    },
+    {
+      "category": "content",
+      "in": "jar resources",
+      "detail": "84 asset files, 0 data files",
+      "horizon": "content mod (.hmod)",
+      "status": "content",
+      "note": "Recipes, loot, tags, models, textures, worldgen: horizon-port-pack carries these."
+    }
+  ],
+  "mappedCalls": [
+    {
+      "java": "net/minecraft/client/KeyMapping#<init>",
+      "kind": "method",
+      "uses": 2,
+      "horizon": "`self.native_mod_key(MOD_ID, name, default)`"
+    },
+    {
+      "java": "net/minecraft/client/KeyMapping#consumeClick",
+      "kind": "method",
+      "uses": 1,
+      "horizon": "`key == self.native_mod_key(..) && pressed, in the key hook`"
+    },
+    {
+      "java": "net/minecraft/client/KeyMapping#isDown",
+      "kind": "method",
+      "uses": 5,
+      "horizon": "`self.native_mapping(name) for vanilla keys; track key hook presses for the mod's own`"
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#font",
+      "kind": "field",
+      "uses": 14,
+      "horizon": "`(implicit)`"
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getInstance",
+      "kind": "method",
+      "uses": 86,
+      "horizon": "`self`"
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#player",
+      "kind": "field",
+      "uses": 24,
+      "horizon": "`self.native_player()`"
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#tick",
+      "kind": "method",
+      "uses": 1,
+      "horizon": "hook `tick`"
+    },
+    {
+      "java": "net/minecraft/client/gui/Font#width",
+      "kind": "method",
+      "uses": 15,
+      "horizon": "`self.native_text_width(text)`"
+    },
+    {
+      "java": "net/minecraft/core/Registry#registerForHolder",
+      "kind": "method",
+      "uses": 1,
+      "horizon": "content"
+    },
+    {
+      "java": "net/minecraft/core/registries/BuiltInRegistries#ITEM",
+      "kind": "field",
+      "uses": 4,
+      "horizon": "content"
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getX",
+      "kind": "method",
+      "uses": 7,
+      "horizon": "`self.native_player()?.x`"
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getXRot",
+      "kind": "method",
+      "uses": 1,
+      "horizon": "`self.native_player()?.pitch`"
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getY",
+      "kind": "method",
+      "uses": 9,
+      "horizon": "`self.native_player()?.y`"
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getYRot",
+      "kind": "method",
+      "uses": 1,
+      "horizon": "`self.native_player()?.yaw`"
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getZ",
+      "kind": "method",
+      "uses": 7,
+      "horizon": "`self.native_player()?.z`"
+    }
+  ],
+  "unmappedCalls": [
+    {
+      "java": "com/mojang/blaze3d/ProjectionType#ORTHOGRAPHIC",
+      "kind": "field",
+      "uses": 4
+    },
+    {
+      "java": "com/mojang/blaze3d/pipeline/RenderTarget#getColorTextureView",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/pipeline/RenderTarget#getDepthTextureView",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/pipeline/RenderTarget#hasDepth",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/pipeline/RenderTarget#height",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/pipeline/RenderTarget#width",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/pipeline/TextureTarget#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/InputConstants#UNKNOWN",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/InputConstants$Key#getValue",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/InputConstants$Type#KEYBOARD",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/InputConstants$Type#MOUSE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Lighting#setupFor",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Lighting$Entry#ITEMS_3D",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Lighting$Entry#ITEMS_FLAT",
+      "kind": "field",
+      "uses": 6
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/NativeImage#fillRect",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Window#getGuiScale",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Window#getGuiScaledHeight",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Window#getGuiScaledWidth",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Window#getHeight",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Window#getScreenHeight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Window#getScreenWidth",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/platform/Window#getWidth",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#bindDefaultUniforms",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#getDevice",
+      "kind": "method",
+      "uses": 9
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#getModelViewStack",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#getProjectionMatrixBuffer",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#getProjectionType",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#getSamplerCache",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#getSequentialBuffer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem#setProjectionMatrix",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem$AutoStorageIndexBuffer#getBuffer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/RenderSystem$AutoStorageIndexBuffer#type",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/systems/SamplerCache#getClampToEdge",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/BufferBuilder#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/BufferBuilder#addVertex",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/BufferBuilder#build",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/ByteBufferBuilder#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/DefaultVertexFormat#POSITION",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/DefaultVertexFormat#POSITION_TEX",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/MeshData#close",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/MeshData#drawState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/MeshData#indexBuffer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/MeshData#vertexBuffer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/MeshData$DrawState#indexCount",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack#<init>",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack#last",
+      "kind": "method",
+      "uses": 16
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack#popPose",
+      "kind": "method",
+      "uses": 12
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack#pushPose",
+      "kind": "method",
+      "uses": 12
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack#scale",
+      "kind": "method",
+      "uses": 12
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack#setIdentity",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack#translate",
+      "kind": "method",
+      "uses": 20
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack$Pose#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack$Pose#normal",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/PoseStack$Pose#pose",
+      "kind": "method",
+      "uses": 14
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/SheetedDecalTextureGenerator#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/SheetedDecalTextureGenerator#textureScale",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#addVertex",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setColor",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setLineWidth",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setNormal",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setOverlay",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setUv",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setUv1",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setUv2",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "com/mojang/blaze3d/vertex/VertexConsumer#setUv3",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/blay09/mods/waystones/core/PlayerWaystoneManager#deactivateWaystone",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#AQUA",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#DARK_GRAY",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#DARK_GREEN",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#GRAY",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#GREEN",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#RED",
+      "kind": "field",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#UNDERLINE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#WHITE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/ChatFormatting#YELLOW",
+      "kind": "field",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/IdentifierException#getMessage",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Camera#forwardVector",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/Camera#position",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/Camera#xRot",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Camera#yRot",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/ClientClockManager#getInstance",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/DeltaTracker#getGameTimeDeltaPartialTick",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/KeyMapping$Category#register",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#debugEntries",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#disconnect",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#gameMode",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#gameRenderer",
+      "kind": "field",
+      "uses": 15
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getAtlasManager",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getBlockColors",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getCameraEntity",
+      "kind": "method",
+      "uses": 17
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getConnection",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getDeltaTracker",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getEntityRenderDispatcher",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getItemModelResolver",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getModelManager",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getResourceManager",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getSingleplayerServer",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getSoundManager",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getTextureManager",
+      "kind": "method",
+      "uses": 7
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#getWindow",
+      "kind": "method",
+      "uses": 11
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#gui",
+      "kind": "field",
+      "uses": 32
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#isEnforceUnicode",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#isPaused",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#isSameThread",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#level",
+      "kind": "field",
+      "uses": 22
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#mouseHandler",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#options",
+      "kind": "field",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#setLevel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Minecraft#submit",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/MouseHandler#xpos",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/MouseHandler#ypos",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/OptionInstance#get",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/Options#chatVisibility",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Options#fov",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Options#keyPlayerList",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/Options#renderDistance",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/color/block/BlockColors#getTintSource",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/color/block/BlockTintSource#colorInWorld",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/Font$DisplayMode#NORMAL",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/Gui#extractRenderState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/Gui#hud",
+      "kind": "field",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/gui/Gui#overlay",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/Gui#screen",
+      "kind": "method",
+      "uses": 15
+    },
+    {
+      "java": "net/minecraft/client/gui/Gui#setScreen",
+      "kind": "method",
+      "uses": 23
+    },
+    {
+      "java": "net/minecraft/client/gui/GuiGraphicsExtractor#blit",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/GuiGraphicsExtractor#centeredText",
+      "kind": "method",
+      "uses": 18
+    },
+    {
+      "java": "net/minecraft/client/gui/GuiGraphicsExtractor#fill",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/client/gui/GuiGraphicsExtractor#horizontalLine",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/GuiGraphicsExtractor#pose",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/client/gui/GuiGraphicsExtractor#text",
+      "kind": "method",
+      "uses": 7
+    },
+    {
+      "java": "net/minecraft/client/gui/GuiGraphicsExtractor#verticalLine",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/Hud#extractCrosshair",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/Hud#extractEffects",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/Hud#getChat",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/Hud#isHidden",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractButton#onPress",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractOptionSliderButton#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractOptionSliderButton#keyPressed",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractSliderButton#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#active",
+      "kind": "field",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#charTyped",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#extractRenderState",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#getHeight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#getMessage",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#getX",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#getY",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#isFocused",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#isMouseOver",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#keyPressed",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#keyReleased",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#mouseClicked",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#mouseDragged",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#mouseMoved",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#mouseReleased",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#mouseScrolled",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#setFocused",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#setMessage",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#setX",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#setY",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#updateNarration",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/AbstractWidget#visible",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/BossHealthOverlay#extractBar",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/Button#active",
+      "kind": "field",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/gui/components/Button#builder",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/gui/components/Button#onClick",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/Button#setMessage",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/Button$Builder#bounds",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/gui/components/Button$Builder#build",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/gui/components/Button$Plain#<init>",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ChatComponent#addClientSystemMessage",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ChatComponent#addPlayerMessage",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ChatComponent#addRecentChat",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ChatComponent#addServerSystemMessage",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#<init>",
+      "kind": "method",
+      "uses": 7
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#active",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#addFormatter",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#createNarrationMessage",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#deleteChars",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#deleteWords",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#extractRenderState",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#extractWidgetRenderState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#getValue",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#insertText",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#isFocused",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#mouseClicked",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#moveCursorTo",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#moveCursorToEnd",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#moveCursorToStart",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setCursorPosition",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setEditable",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setFocused",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setHighlightPos",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setMaxLength",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setResponder",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setTextColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/EditBox#setValue",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#<init>",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#charTyped",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#extractItem",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#extractWidgetRenderState",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#keyReleased",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#mouseClicked",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#mouseMoved",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#nextFocusPath",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#setFocused",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#setSelected",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList#updateWidgetNarration",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#<init>",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#charTyped",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#keyPressed",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#keyReleased",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#mouseClicked",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#mouseDragged",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#mouseMoved",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#mouseReleased",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#mouseScrolled",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#setFocused",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/ObjectSelectionList$Entry#updateNarration",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/components/debug/DebugScreenEntryList#isOverlayVisible",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/narration/NarratedElementType#USAGE",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/narration/NarrationElementOutput#add",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/navigation/FocusNavigationEvent$ArrowNavigation#direction",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/navigation/ScreenDirection#LEFT",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/navigation/ScreenDirection#RIGHT",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/navigation/ScreenRectangle#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/render/GuiRenderer#close",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/render/GuiRenderer#preparePictureInPictureState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/render/GuiRenderer#render",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/render/pip/PictureInPictureRenderer#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/screens/ConfirmScreen#<init>",
+      "kind": "method",
+      "uses": 9
+    },
+    {
+      "java": "net/minecraft/client/gui/screens/ConfirmScreen#keyPressed",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/screens/Screen#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/gui/screens/Screen#extractRenderStateWithTooltipAndSubtitles",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/screens/Screen#init",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/gui/screens/Screen#resize",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/input/KeyEvent#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/input/KeyEvent#key",
+      "kind": "method",
+      "uses": 13
+    },
+    {
+      "java": "net/minecraft/client/input/MouseButtonEvent#<init>",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/input/MouseButtonEvent#button",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/input/MouseButtonEvent#buttonInfo",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/input/MouseButtonEvent#x",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/input/MouseButtonEvent#y",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/input/MouseButtonInfo#<init>",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/client/model/EntityModel#root",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/EntityModel#setupAnim",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/HeadedModel#getHead",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/HumanoidModel#head",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/Model#renderToBuffer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/Model#renderType",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/Model#root",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#compile",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#getChild",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#getInitialPose",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#render",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#setPos",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#setRotation",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#skipDraw",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#visible",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#x",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#xRot",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#y",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#yRot",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#z",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart#zRot",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart$Cube#maxX",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart$Cube#maxY",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart$Cube#maxZ",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart$Cube#minX",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart$Cube#minY",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/model/geom/ModelPart$Cube#minZ",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/model/geom/PartPose#xRot",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/PartPose#yRot",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/model/geom/PartPose#zRot",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#NETHER",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#OVERWORLD",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#cardinalLighting",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#clockManager",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#dimension",
+      "kind": "method",
+      "uses": 12
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#dimensionType",
+      "kind": "method",
+      "uses": 13
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#dimensionTypeRegistration",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#endFlashState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#entitiesForRendering",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getBiome",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getBlockEntity",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getBlockState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getBrightness",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getChunk",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getDifficulty",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getFluidState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getHeight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getLightEngine",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getMaxY",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getMinY",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getOverworldClockTime",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#getPlayerByUUID",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#isRaining",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#isThundering",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientLevel#registryAccess",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#close",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#getOnlinePlayers",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#getPlayerInfo",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#getServerData",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#handleBlockUpdate",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#handleChunkBlocksUpdate",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#handleLevelChunkWithLight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#handleLightUpdatePacket",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#handleLogin",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#handleSetSpawn",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#levels",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#queueLightRemoval",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#sendChat",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#sendCommand",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ClientPacketListener#sendUnattendedCommand",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/MultiPlayerGameMode#canHurtPlayer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/PlayerInfo#getProfile",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/PlayerInfo#getSkin",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/PlayerInfo#showHat",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ServerData#ip",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/ServerData#isRealm",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/chat/ChatListener#handleDisguisedChatMessage",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/chat/ChatListener#handleSystemMessage",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/multiplayer/chat/ChatListener#showMessageToPlayer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/player/AbstractClientPlayer#getSkin",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/player/LocalPlayer#connection",
+      "kind": "field",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/client/player/LocalPlayer#respawn",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#extract",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#featureRenderDispatcher",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#lighting",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#lightmap",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#mainCamera",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#mainRenderTarget",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#overlayTexture",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/GameRenderer#renderLevel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/LevelRenderer#render",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/Projection#<init>",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/renderer/Projection#height",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/Projection#setSize",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/Projection#setupOrtho",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/renderer/Projection#width",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/ProjectionMatrixBuffer#<init>",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/renderer/ProjectionMatrixBuffer#getBuffer",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/renderer/RenderPipelines#GUI",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/RenderPipelines#GUI_TEXTURED",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/SpriteCoordinateExpander#mapping",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/SubmitNodeStorage#<init>",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/SubmitNodeStorage#getSubmitsPerOrder",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/block/BlockModelRenderState#clear",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/block/BlockStateModelSet#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/block/FluidModel#tintSource",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/block/FluidStateModelSet#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/EntityRenderDispatcher#camera",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/EntityRenderDispatcher#getRenderer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/EntityRenderDispatcher#submit",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/EntityRenderer#createRenderState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/LivingEntityRenderer#getModel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/LivingEntityRenderer#getTextureLocation",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/ArmedEntityRenderState#swingAnimation",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/HumanoidRenderState#isCrouching",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/HumanoidRenderState#isFallFlying",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/HumanoidRenderState#isVisuallySwimming",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/HumanoidRenderState#swimAmount",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/HumanoidRenderState#ticksUsingItem",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/LivingEntityRenderState#ageInTicks",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/LivingEntityRenderState#bodyRot",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/LivingEntityRenderState#walkAnimationSpeed",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/LivingEntityRenderState#xRot",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/LivingEntityRenderState#yRot",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/SlimeRenderState#squish",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/entity/state/SulfurCubeRenderState#containedBlock",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/feature/FeatureRenderDispatcher#prepareFrame",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/feature/FeatureRenderDispatcher#renderAllFeatures",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/feature/FeatureRenderDispatcher$PreparedFrame#close",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/feature/ModelFeatureRenderer#prepareModel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/feature/ModelFeatureRenderer$Submit#renderType",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/item/ItemModelResolver#updateForTopItem",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/item/ItemStackRenderState#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/item/ItemStackRenderState#submit",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/item/ItemStackRenderState#usesBlockLight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/LayeringTransform#NO_LAYERING",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/LayeringTransform#VIEW_OFFSET_Z_LAYERING_FORWARD",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/PreparedRenderType$Texture#<init>",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/PreparedRenderType$Texture#name",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/PreparedRenderType$Texture#sampler",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup#builder",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup#prepareTextures",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup$RenderSetupBuilder#affectsCrumbling",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup$RenderSetupBuilder#setLayeringTransform",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup$RenderSetupBuilder#setTextureTransform",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup$RenderSetupBuilder#sortOnUpload",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup$RenderSetupBuilder#useOverlay",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderSetup$RenderSetupBuilder#withTexture",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderType#affectsCrumbling",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderType#format",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderType#pipeline",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderType#primitiveTopology",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/RenderType#sortOnUpload",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/rendertype/TextureTransform#DEFAULT_TEXTURING",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/state/gui/GuiRenderState#addPicturesInPictureState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/state/gui/pip/PictureInPictureRenderState#getClass",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/state/level/CameraRenderState#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/state/level/CameraRenderState#viewRotationMatrix",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/AbstractTexture#getSampler",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/AbstractTexture#getTextureView",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/DynamicTexture#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/DynamicTexture#getPixels",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/DynamicTexture#getTextureView",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/DynamicTexture#upload",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/MissingTextureAtlasSprite#getLocation",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/OverlayTexture#NO_OVERLAY",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/OverlayTexture#getTextureView",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/SimpleTexture#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureAtlas#getSprite",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureAtlas#upload",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureAtlasSprite#atlasLocation",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureAtlasSprite#getU0",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureAtlasSprite#getU1",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureAtlasSprite#getV0",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureAtlasSprite#getV1",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureManager#getTexture",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/TextureManager#register",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/renderer/texture/UvMapping#wrap",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/resources/DefaultPlayerSkin#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/resources/language/I18n#get",
+      "kind": "method",
+      "uses": 23
+    },
+    {
+      "java": "net/minecraft/client/resources/model/ModelManager#getBlockStateModelSet",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/resources/model/ModelManager#getFluidStateModelSet",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/resources/model/geometry/BakedQuad#materialInfo",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/resources/model/geometry/BakedQuad$MaterialInfo#sprite",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/resources/model/geometry/BakedQuad$MaterialInfo#tintIndex",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/resources/model/sprite/AtlasManager#getAtlasOrThrow",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/client/resources/sounds/SimpleSoundInstance#forUI",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/client/server/IntegratedServer#getLevel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/server/IntegratedServer#getWorldPath",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/client/sounds/SoundManager#play",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/core/BlockPos#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/BlockPos#ZERO",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/core/BlockPos#getX",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/core/BlockPos#getY",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/core/BlockPos#getZ",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/core/BlockPos$MutableBlockPos#<init>",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/core/BlockPos$MutableBlockPos#getX",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/BlockPos$MutableBlockPos#getY",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/BlockPos$MutableBlockPos#getZ",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/BlockPos$MutableBlockPos#set",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/core/BlockPos$MutableBlockPos#setY",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/ClientAsset$Texture#texturePath",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/DefaultedRegistry#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/DefaultedRegistry#getKey",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/core/DefaultedRegistry#getOptional",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/DefaultedRegistry#getValue",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/DefaultedRegistry#keySet",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Direction#UP",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Direction#values",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Direction$Axis#Y",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Holder#is",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Holder#unwrapKey",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Holder#value",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/core/Holder$Reference#isBound",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Holder$Reference#value",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/HolderSet#forEach",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/NonNullList#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/NonNullList#size",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Registry#entrySet",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Registry#getKey",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/core/Registry#getValue",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/Registry#iterator",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/RegistryAccess#lookup",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/RegistryAccess#lookupOrThrow",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/core/SectionPos#getX",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/SectionPos#getZ",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/UUIDUtil#uuidFromIntArray",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/UUIDUtil#uuidToIntArray",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/component/DataComponents#TRIM",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/registries/BuiltInRegistries#ENTITY_TYPE",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/core/registries/BuiltInRegistries#MOB_EFFECT",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/registries/BuiltInRegistries#VILLAGER_PROFESSION",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/registries/BuiltInRegistries#VILLAGER_TYPE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/registries/Registries#BIOME",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/core/registries/Registries#BLOCK",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/core/registries/Registries#DIMENSION",
+      "kind": "field",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/core/registries/Registries#DIMENSION_TYPE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/data/AtlasIds#BLOCKS",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/locale/Language#getInstance",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/ByteTag#byteValue",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#<init>",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#contains",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getBoolean",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getBooleanOr",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getCompoundOrEmpty",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getDouble",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getIntArray",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getIntOr",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getListOrEmpty",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getLongArray",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getString",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#getStringOr",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#isEmpty",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#keySet",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#put",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#putBoolean",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#putDouble",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#putInt",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#putIntArray",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#putLongArray",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/CompoundTag#putString",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/nbt/DoubleTag#doubleValue",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/IntArrayTag#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/IntTag#intValue",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/ListTag#<init>",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/nbt/ListTag#add",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/nbt/ListTag#getStringOr",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/ListTag#isEmpty",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/ListTag#iterator",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/nbt/ListTag#size",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/NbtAccounter#unlimitedHeap",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/StringTag#valueOf",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/nbt/Tag#asString",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/nbt/Tag#getClass",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/FriendlyByteBuf#readInt",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/FriendlyByteBuf#readNbt",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/FriendlyByteBuf#writeInt",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/FriendlyByteBuf#writeNbt",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/ClickEvent$RunCommand#<init>",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/CommonComponents#optionNameValue",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/Component#copy",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/network/chat/Component#getContents",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/chat/Component#getString",
+      "kind": "method",
+      "uses": 7
+    },
+    {
+      "java": "net/minecraft/network/chat/Component#literal",
+      "kind": "method",
+      "uses": 36
+    },
+    {
+      "java": "net/minecraft/network/chat/Component#translatable",
+      "kind": "method",
+      "uses": 77
+    },
+    {
+      "java": "net/minecraft/network/chat/Component#visit",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/chat/HoverEvent$ShowText#<init>",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/MutableComponent#getSiblings",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/network/chat/MutableComponent#getString",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/chat/MutableComponent#getStyle",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/MutableComponent#setStyle",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/MutableComponent#withColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/chat/MutableComponent#withStyle",
+      "kind": "method",
+      "uses": 14
+    },
+    {
+      "java": "net/minecraft/network/chat/Style#EMPTY",
+      "kind": "field",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/network/chat/Style#applyFormat",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/chat/Style#withClickEvent",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/Style#withColor",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/network/chat/Style#withHoverEvent",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/TextColor#fromLegacyFormat",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/network/chat/contents/PlainTextContents#text",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/protocol/PacketUtils#ensureRunningOnSameThread",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/network/protocol/game/ClientboundBlockUpdatePacket#getPos",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/protocol/game/ClientboundForgetLevelChunkPacket#pos",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/protocol/game/ClientboundLevelChunkWithLightPacket#x",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/protocol/game/ClientboundLevelChunkWithLightPacket#z",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/protocol/game/ClientboundLightUpdatePacket#x",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/protocol/game/ClientboundLightUpdatePacket#z",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/protocol/game/ClientboundSetDefaultSpawnPositionPacket#respawnData",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/network/syncher/SynchedEntityData#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/resources/Identifier#equals",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/resources/Identifier#fromNamespaceAndPath",
+      "kind": "method",
+      "uses": 17
+    },
+    {
+      "java": "net/minecraft/resources/Identifier#getNamespace",
+      "kind": "method",
+      "uses": 7
+    },
+    {
+      "java": "net/minecraft/resources/Identifier#getPath",
+      "kind": "method",
+      "uses": 11
+    },
+    {
+      "java": "net/minecraft/resources/Identifier#isAllowedInIdentifier",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/resources/Identifier#parse",
+      "kind": "method",
+      "uses": 9
+    },
+    {
+      "java": "net/minecraft/resources/Identifier#toString",
+      "kind": "method",
+      "uses": 9
+    },
+    {
+      "java": "net/minecraft/resources/ResourceKey#create",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/resources/ResourceKey#identifier",
+      "kind": "method",
+      "uses": 16
+    },
+    {
+      "java": "net/minecraft/server/MinecraftServer#getLevel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/MinecraftServer#getPlayerList",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/MinecraftServer#getWorldPath",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/MinecraftServer#tickServer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/level/ServerLevel#dimensionType",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/level/ServerLevel#getSeed",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/level/ServerLevel#getServer",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/server/level/ServerPlayer#connection",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/level/ServerPlayer#getUUID",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/server/level/ServerPlayer#level",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/server/network/ServerGamePacketListenerImpl#disconnect",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/packs/resources/Resource#open",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/packs/resources/ResourceManager#getResource",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/players/PlayerList#getPlayers",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/players/PlayerList#placeNewPlayer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/server/players/PlayerList#sendLevelInfo",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/sounds/SoundEvents#UI_BUTTON_CLICK",
+      "kind": "field",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/sounds/SoundSource#HOSTILE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/tags/BlockTags#FLOWERS",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/tags/BlockTags#LEAVES",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/tags/ItemTags#TRIMMABLE_ARMOR",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/ARGB#alpha",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/util/FormattedCharSink#accept",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/Mth#clamp",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/util/Mth#floor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/Mth#lerp",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/util/Mth#positiveModulo",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/Mth#wrapDegrees",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/RandomSource#create",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/RandomSource#nextInt",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/Util#make",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/util/Util#memoize",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/Difficulty#PEACEFUL",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/attribute/EnvironmentAttributeSystem#builder",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/attribute/EnvironmentAttributeSystem#getValue",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/attribute/EnvironmentAttributeSystem#invalidateTickCache",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/attribute/EnvironmentAttributeSystem$Builder#addConstantLayer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/attribute/EnvironmentAttributeSystem$Builder#addTimelineLayer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/attribute/EnvironmentAttributeSystem$Builder#build",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/attribute/EnvironmentAttributes#SKY_LIGHT_FACTOR",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/effect/MobEffect#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/effect/MobEffect#isBeneficial",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/effect/MobEffectCategory#BENEFICIAL",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/effect/MobEffectCategory#HARMFUL",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/effect/MobEffectCategory#NEUTRAL",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/effect/MobEffectInstance#getEffect",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/effect/MobEffectInstance#showIcon",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#blockPosition",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getCustomName",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getName",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getPickResult",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getScoreboardName",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getSoundSource",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getTeam",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getType",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getUUID",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#getViewYRot",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#hasCustomName",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#isInvisibleTo",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#isShiftKeyDown",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#level",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#position",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#tickCount",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#xOld",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#yOld",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/Entity#zOld",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/EntityReference#getUUID",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/EntityType#getKey",
+      "kind": "method",
+      "uses": 9
+    },
+    {
+      "java": "net/minecraft/world/entity/EntityTypes#ARMOR_STAND",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/EntityTypes#CUSHION",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/EntityTypes#GLOW_ITEM_FRAME",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/EntityTypes#ITEM_FRAME",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/EquipmentSlot#BODY",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/EquipmentSlot#HEAD",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/LivingEntity#getItemBySlot",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/LivingEntity#isBaby",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/OwnableEntity#getOwnerReference",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/TamableAnimal#isTame",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/AbstractHorse#isTamed",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Horse#getMarkings",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Llama#getBodyArmorItem",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Llama#isTraderLlama",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Markings#BLACK_DOTS",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Markings#NONE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Markings#WHITE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Markings#WHITE_DOTS",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/equine/Markings#WHITE_FIELD",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/fish/TropicalFish#getBaseColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/fish/TropicalFish#getPattern",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/fish/TropicalFish#getPatternColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/fox/Fox#getEntityData",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/golem/IronGolem#getCrackiness",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/animal/pig/Pig#isSaddled",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/decoration/Cushion#getColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/decoration/ItemFrame#getItem",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/item/ItemEntity#getItem",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/world/entity/monster/Enderman#isCreepy",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/monster/Strider#isSaddled",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/monster/piglin/Piglin#isBaby",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/npc/villager/VillagerData#level",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/npc/villager/VillagerData#profession",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/npc/villager/VillagerData#type",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/npc/villager/VillagerDataHolder#getVillagerData",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/ChatVisiblity#HIDDEN",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Inventory#getContainerSize",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Inventory#getItem",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getActiveEffects",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getCustomName",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getGameProfile",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getInventory",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getTeam",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getUUID",
+      "kind": "method",
+      "uses": 7
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getX",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getY",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#getZ",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#hasEffect",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#level",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/world/entity/player/Player#tick",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/entity/player/PlayerSkin#body",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#BLACK",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#BLUE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#BROWN",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#CYAN",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#GRAY",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#GREEN",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#LIGHT_BLUE",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#LIGHT_GRAY",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#LIME",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#MAGENTA",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#ORANGE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#PINK",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#PURPLE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#RED",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#YELLOW",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#getTextColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#ordinal",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#toString",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/DyeColor#values",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/Item#getDefaultInstance",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemDisplayContext#GUI",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#EMPTY",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#get",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#getItem",
+      "kind": "method",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#getItemName",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#has",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#is",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/ItemStack#isEmpty",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/Items#AIR",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/item/equipment/trim/ArmorTrim#material",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/item/equipment/trim/ArmorTrim#pattern",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/ChunkPos#<init>",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/ChunkPos#pack",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/ChunkPos#x",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/ChunkPos#z",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/ColorResolver#getColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#END",
+      "kind": "field",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/world/level/Level#NETHER",
+      "kind": "field",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/world/level/Level#OVERWORLD",
+      "kind": "field",
+      "uses": 5
+    },
+    {
+      "java": "net/minecraft/world/level/Level#dimension",
+      "kind": "method",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/world/level/Level#dimensionType",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getBiome",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getBlockEntity",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getBlockState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getBrightness",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getChunk",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getMaxY",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getMinY",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#getServer",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/Level#registryAccess",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/LightLayer#BLOCK",
+      "kind": "field",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/world/level/LightLayer#SKY",
+      "kind": "field",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/world/level/block/Block#defaultBlockState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Block#getId",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#AIR",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#BARRIER",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#GLASS",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#GLASS_PANE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#REDSTONE_TORCH",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#REDSTONE_WIRE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#SHORT_GRASS",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/Blocks#TORCH",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/RenderShape#INVISIBLE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getBlock",
+      "kind": "method",
+      "uses": 3
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getFluidState",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getLightDampening",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getLightEmission",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getMapColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getPistonPushReaction",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getRenderShape",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#getShape",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#is",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/block/state/BlockState#isAir",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/ChunkAccess#getHeight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/ChunkAccess#getSections",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/LevelChunk#getBlockState",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/LevelChunk#getHeight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/LevelChunk#getLevel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/LevelChunk#getMinY",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/LevelChunk#getPos",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/LevelChunk#getSections",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/LevelChunkSection#hasOnlyAir",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/chunk/status/ChunkStatus#FULL",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/BuiltinDimensionTypes#END",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/BuiltinDimensionTypes#NETHER",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/BuiltinDimensionTypes#OVERWORLD",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/DimensionType#ambientLight",
+      "kind": "method",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/DimensionType#attributes",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/DimensionType#coordinateScale",
+      "kind": "method",
+      "uses": 11
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/DimensionType#hasSkyLight",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/dimension/DimensionType#timelines",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/levelgen/Heightmap$Types#WORLD_SURFACE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/levelgen/WorldgenRandom#seedSlimeChunk",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/material/FluidState#createLegacyBlock",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/material/FluidState#isEmpty",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/material/MapColor#col",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/material/PushReaction#POPPED",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/storage/LevelData$RespawnData#pos",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/storage/LevelResource#LEVEL_DATA_FILE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/storage/LevelResource#ROOT",
+      "kind": "field",
+      "uses": 2
+    },
+    {
+      "java": "net/minecraft/world/level/storage/LevelStorageSource$LevelStorageAccess#deleteLevel",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/level/storage/LevelStorageSource$LevelStorageAccess#getLevelPath",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/phys/Vec3#<init>",
+      "kind": "method",
+      "uses": 4
+    },
+    {
+      "java": "net/minecraft/world/phys/Vec3#x",
+      "kind": "field",
+      "uses": 10
+    },
+    {
+      "java": "net/minecraft/world/phys/Vec3#y",
+      "kind": "field",
+      "uses": 6
+    },
+    {
+      "java": "net/minecraft/world/phys/Vec3#z",
+      "kind": "field",
+      "uses": 10
+    },
+    {
+      "java": "net/minecraft/world/phys/shapes/VoxelShape#max",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/scores/PlayerTeam#getFormattedName",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/scores/Team#getColor",
+      "kind": "method",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/scores/TeamColor#WHITE",
+      "kind": "field",
+      "uses": 1
+    },
+    {
+      "java": "net/minecraft/world/scores/TeamColor#rgb",
+      "kind": "method",
+      "uses": 1
+    }
+  ],
+  "warnings": []
+}
